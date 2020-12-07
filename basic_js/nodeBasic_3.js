@@ -135,7 +135,7 @@ console.log(new Date(timeRandom));
 */
 
 /*
-    case 43 : 전역 객체(Global Object) (p96)
+    case 43 : 전역 객체(Global Object) (p94)
      => console도 전역 객체에 해당함!
      => 전역 객체 예시
         process, console, buffer, require()(모듈 로딩), (set)Timeout...
