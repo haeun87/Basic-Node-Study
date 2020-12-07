@@ -87,7 +87,7 @@ console.log(`${ans} ?  ${test3}`);
 
 /*
     case 12: 연산 (p41)
-     => 숫자인지 아닌지 확인하는 방법
+     => switch 사용(JAVA와 동일)
 */
 
 const ADD = 1;

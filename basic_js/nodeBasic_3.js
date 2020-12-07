@@ -47,8 +47,8 @@ let sum = 0;
 for(var v = 0; v <= 100; ++v){
     sum += v;
 }
-console.log("v =",v); // 선증감 조건이라 v는 101까지 증가함, 호이스팅 적용된 값
-console.log("1부터 100까지의 합 :",sum);
+console.log("v =", v); // 선증감 조건이라 v는 101까지 증가함, 호이스팅 적용된 값
+console.log("1부터 100까지의 합 :", sum);
 
 // 구구단
 for(let j = 2; j<=9; j++){
@@ -61,6 +61,33 @@ for(let j = 2; j<=9; j++){
         console.log(`${j} X ${i} = ${j*i}`);
     }
 }
+/*
+    for in VS for of
+    1) for in
+        => 객체의 key값에 접근 O, 객체의 value 값에 접근 X
+        => 내부적으로 Enumerable 속성이 내제되어 있어 그 값이 true로 셋팅되어 있는 경우의 속성만 반복됨
+        => 모든 객체에 사용 가능
+        => prototype로 상위에 추가된 객체까지 순회함
+    2) for of
+        => Symbol.iterator 속성을 갖는 컬렉션만 적용됨
+        => 인덱스가 아닌 요소를 직접 받아옴
+        => 연산 도중 오류 발생시에 전부 null로 표시하게 됨
+        => 현재의 객체에 대해서만 순회를 수행함(상위 객체 X)
+
+*/
+var data = [1, 2, undefined, NaN, null, ""];
+
+Array.prototype.getIndex = function(){};
+
+console.log("==== for in======")
+for(let k in data){
+    console.log(data[k]); // undefined부터 시작해서 NaN, null, 심지어 상위 prototype에 추가된 객체까지 순회함
+}
+console.log("==== for of======")
+for(let value of data){
+    console.log(value);// 상위 객체를 제외한 현재 객체만 출력.
+}
+console.log("==== end for ======")
 
 // for of
 let userList = [
@@ -68,6 +95,8 @@ let userList = [
     {name : 'anne', job : 'writer', age : 50},
     {name : 'gildong', job : 'theaf', age : 38}
 ];
+
+
 
 for(let user of userList){
     console.log(`${user.name}의 직업은 ${user.job}입니다.`);

@@ -76,6 +76,10 @@ function multiple(a , b) {
 let r = multiple(10, 10); // result를 받는다.
 console.log(r);
 
+var tempFunc = multiple; //변수할당을 이용한 함수명 rename
+
+console.log(tempFunc(60,14));
+
 //지역 변수
 function addition(a, b){
     let resultSum = a + b;
