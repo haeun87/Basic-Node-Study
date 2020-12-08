@@ -1,5 +1,6 @@
 /*
     case 155 : ejs 모듈 2 (p290)
+    => js로부터 인자를 전달
 */
 const ejs = require('ejs');
 const fs = require('fs');
