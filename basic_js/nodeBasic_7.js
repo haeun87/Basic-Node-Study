@@ -1,5 +1,5 @@
 /*
-    case 103 ~ case 
+    case 103 ~ case 116
 */
 
 /*
@@ -37,7 +37,7 @@ const openFileAndPrint = path => fileName => fs.readFile(path + fileName, (err, 
     console.log(data.toString()); 
     });
 
-const otherDirOpenFileAndPrint = openFileAndPrint('./basic_js/');
+const otherDirOpenFileAndPrint = openFileAndPrint('./');
 otherDirOpenFileAndPrint('sample.json'); // 출력
 
 // const thisDirOpenFileAndPrint = openFileAndPrint('./basic_js/');
@@ -84,3 +84,26 @@ console.log(multipledList);
 
 const sumWithInvalue = multipledList.reduce((a,b) => (a+b), 10);
 console.log('sum =',sumWithInvalue);
+
+/*
+    case 114 ~ case 116: filter,map,reduce 예제 (p216)
+    => 병렬로 이어서 처리 가능 cf. function().then().then() ... 
+*/
+
+const employeeList = [
+    { name: 'barbie', age: 23, department: 'marketing', score: 85},
+    { name: 'kenn', age: 31, department: 'sales', score: 90},
+    { name: 'gildong', age: 24, department: 'engineering', score: 67},
+    { name: 'ddochi', age: 10, department: 'engineering', score: 99},
+    { name: 'villgate', age: 70, department: 'engineering', score: 98}
+];
+
+const developerAgeList = employeeList.filter(employee => employee.department === 'engineering').map(employee => employee.age);
+console.log(developerAgeList.reduce((a, b) => a + b));
+
+const between21to40EmployeeAverage = employeeList
+.filter(employee => employee.age >= 21 && employee.age < 40)
+.map(employee => employee.score)
+.reduce( (previous, current, index, array) => previous + (current/array.length), 0);
+
+console.log('average :',between21to40EmployeeAverage);
