@@ -121,7 +121,7 @@ http.createServer((request, response) => {
 /*
     case 138 ~ case 140 : http request (p257)
     => 관련 html 소스 : nodeBasic_10_example136.html, nodeBasic_10_example138.html, nodeBasic_10_example140.html
-*/
+
 
 http.createServer((request, response) => {
 
@@ -170,3 +170,36 @@ http.createServer((request, response) => {
 }).listen(50000, () => {
     console.log('서버가 동작 중입니다, http://localhost:50000');
 });
+
+*/
+
+/*
+    case 141 ~ case 142 : http cookie (p265)
+        => 외부 라이브러리를 사용하지 않는 내장 라이브러리식 cookie의 생성 및 조회
+
+http.createServer((request, response) => {
+    // GET cookie
+    if (request.headers.cookie){
+        const cookie = request.headers.cookie.split(';').map((element) =>{
+            element = element.split('=');
+            return {
+                name: element[0],
+                value: element[1],
+            };
+        });
+        response.end(`<h1>${JSON.stringify(cookie)}</h1>`);
+    } 
+    else {
+        // SET cookie
+        response.writeHead(200, {
+            'Content-type': 'text/html',
+            'Set-Cookie': ['soju = grilledPork', 'beer = chicken']
+        });
+        // cookie output
+        response.end(`<h1>${request.headers.cookie}</h1>`);
+    }
+}).listen(50000, () => {
+    console.log('서버가 동작 중입니다, http://localhost:50000');
+});
+
+*/
