@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 5
+    },
+    "auditLog": "nodejs_practice_04\\Log\\.68f24f13604a1dc1aac0a81415d85ac8645f1004-audit.json",
+    "files": [
+        {
+            "date": 1607479555892,
+            "name": "nodejs_practice_04\\Log\\logs._2020-12-We",
+            "hash": "6cb9a52468daa0c94bd5bcf4b941daf8"
+        }
+    ]
+}
