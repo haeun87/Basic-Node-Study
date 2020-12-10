@@ -4,17 +4,20 @@
 */
 const nodemailer = require('nodemailer');
 
+// 웹페이지에 등록할 이미지명
+let imgName = `${__dirname}/img/gooseCall.jpeg`
+
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'user@gmail.com',
-        pass: 'passwd'
+        user: '[username]@gmail.com',
+        pass: '[password]'
     }
 });
 
 const mailOptions = {
-    from: 'user@gmail.com',
-    to: 'user@naver.com',
+    from: '[sender]@gmail.com',
+    to: '[reciever]@gmail.com',
     subject: 'hello, HTML Mail:)',
     html: 
     `

@@ -7,15 +7,15 @@ const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'user@gmail.com',
-        pass: 'passwd'
+        user: '[username]@gmail.com',
+        pass: '[password]'
     }
 });
 
 const mailOptions = {
-    from: 'user@gmail.com',
-    to: 'user@naver.com',
-    subject: 'hello, Myself:)',
+    from: '[sender]@gmail.com',
+    to: '[reciever]@gmail.com',
+    subject: 'hello, three files arrived!!',
     html: 
     `
     <h1>Hello HTML</h1>
@@ -26,8 +26,18 @@ const mailOptions = {
     `,
     attachments: [
         {
-            filename: 'text.xlsx',
-            path: `${__dirname}/text.xlsx`
+            filename: 'gooseCall.jpeg',
+            path: `${__dirname}/files/gooseCall.jpeg`
+    
+        },
+        {
+            filename: 'test.txt',
+            path: `${__dirname}/files/test.txt`
+    
+        },
+        {
+            filename: 'price.csv',
+            path: `${__dirname}/files/price.csv`
     
         }
     ]
