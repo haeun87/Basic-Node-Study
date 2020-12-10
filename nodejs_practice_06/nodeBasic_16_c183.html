@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SocketPage</title>
+        <!-- node_modules에서 socket.io가 설치된 폴더를 찾아 socket.io.js를 실행 -->
+        <!-- <script src="/socket.io/socket.io.js"></script> -->
+        <!-- 없으면 CDN으로부터 설정 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+        <script>
+            const socket = io();
+            console.log('Server Connection');
+
+            window.onload = function(){
+                // Message 전달
+                document.getElementById('button').onclick = function(){
+                    const text = document.getElementById('text').value;
+                    console.log('clientMsg -> server');
+                    // socket을 통해 서버로 내보낸다.
+                    socket.emit('clientMsg', text); 
+                };
+
+                // 실시간 Interval 전달
+                document.getElementById('status').onclick = function(){
+                    console.log('Status event(Client)');
+                    socket.emit('status');
+                };
+
+                // 이벤트 연결(서버에서 데이터를 받아옴)
+                socket.on('msg2', function(data){
+                    document.writeln('<li>');
+                    document.writeln(data);
+                    document.writeln('</li');
+                });
+            };
+            // socket을 통해 서버로부터 받는 메세지
+            socket.on('msg', function(data){
+                console.log(data);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Socket.io Page</h1>
+        <ui></ui>
+        <input type="text" id="text">
+        <input type="button" id="button" value="send">
+        <input type="button" id="status" value="IntervalTest">
+    </body>
+</html>

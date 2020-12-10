@@ -1,6 +1,5 @@
 /*
-    case 178 : MySQL 3 - 테이블 생성 (p356) 
-    => html 형식에 파일 첨부까지 포함한 형태
+    case 178 : MySQL 3 - 테이블 생성 (p352) 
 */
 const mysql = require('mysql');
 
