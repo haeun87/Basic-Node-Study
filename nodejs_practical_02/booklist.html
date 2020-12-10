@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Comic books</title>
+    </head>
+    <body>
+        <h1>Comic Book List</h1>
+        <hr/>
+        <table width="100%" border="1">
+            <tr align="center">
+                <th>number</th>
+                <th>genre</th>
+                <th>name</th>
+                <th>writer</th>
+                <th>relesedate</th>
+                <th>MODIFY</th>
+                <th>DELETE</th>
+            </tr>
+            <% data.forEach(function(book, index){ %>
+            <tr align="center">
+                <td><%= book.number %></td>
+                <td><%= book.genre %></td>
+                <td><%= book.name %></td>
+                <td><%= book.writer %></td>
+                <td><%= book.releasedate %></td>
+                <td>
+                    <a href="/modify/<%= book.number %>">MODIFY</button></a>
+                </td>
+                <td align="center">
+                    <a href="/delete/<%= book.number %>">DELETE</input></a>
+                </td>
+            </tr>
+            <% }); %>
+        </table>
+        <hr/>
+        <form action="/create" method="get">
+            <button type="submit">CREATE</button>
+        </form>
+    </body>
+</html>

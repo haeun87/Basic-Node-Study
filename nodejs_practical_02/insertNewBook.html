@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Create Page</title>
+    </head>
+    <body>
+        <h1>Create a new comicbook</h1>
+        <hr/>
+        <form method="post">
+            <!-- fieldset : form 요소에서 연관된 요소를 하나의 그룹으로 묶을 때 사용 -->
+            <fieldset>
+                <!-- legend : fieldset요소의 캡션을 정의할 수 있음 -->
+                <legend>Create data</legend>
+                <table>
+                    <div>
+                        <tr>
+                            <td><label>genre</label></td>
+                            <td><input type="text" name="genre"></td>
+                        </tr>
+                    </div>
+                    <div>
+                        <tr>
+                            <td><label>name</label></td>
+                            <td><input type="text" name="name"></td>
+                        </tr>
+                    </div>
+                    <div>
+                        <tr>
+                            <td><label>writer</label></td>
+                            <td><input type="text" name="writer"></td>
+                        </tr>
+                    </div>
+                    <div>
+                        <tr>
+                            <td><label>releasedate</label></td>
+                            <td><input type="datetime" name="releasedate"></td>
+                        </tr>
+                    </div>                    
+                </table>
+            </filedset>
+            <input type="submit"/>
+        </form>
+    </body>
+</html>
